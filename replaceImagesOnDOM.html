@@ -9,6 +9,12 @@
     <p><button onclick="replaceParagraphs()"> Replace Paragraphs </button></p>
 
     <script>
+    /*
+    
+    NOTE:
+    The loop that goes over the images starts at the end of the list of nodes. This is necessary because the node list returned by a method like getElementsByTagName (or a property like childNodes) is live. That is, it is updated as the document changes. If we started from the front, removing the first image would cause the list to lose its first element so that the second time the loop repeats, where i is 1, it would stop because the length of the collection is now also 1.
+
+    */
       var replaceImages = function() {
         var images = document.body.getElementsByTagName("img"); // array of all img tags on page
         console.log(images);
