@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My home page</title>
+  </head>
+  <body>
+    <p> The <img src="img/cat.png" alt="Cat"> in the <img src="img/hat.png" alt="Hat">. </p>
+    <p><button onclick="replaceImages()"> Replace Images </button></p>
+    <p><button onclick="replaceParagraphs()"> Replace Paragraphs </button></p>
+
+    <script>
+      var replaceImages = function() {
+        var images = document.body.getElementsByTagName("img"); // array of all img tags on page
+        console.log(images);
+        for (var i = images.length - 1; i >= 0; i--) {
+          var image = images[i]; // current img
+          if (image.alt) { // if img alt text exists
+            var text = document.createTextNode(image.alt); // creates new text node for img alt text
+            image.parentNode.replaceChild(text, image); // replaces old image node with new text node
+          }
+        }
+      };
+
+      var replaceParagraphs = function() {
+        var paragraphs = document.body.getElementsByTagName("p"); // array of all p tags on page
+        for (var i = paragraphs.length - 1; i >= 0; i--) {
+          var paragraph = paragraphs[i]; // current p
+          var node = document.createElement("h1"); // creates new h1 node
+          var text = document.createTextNode("Replaced with " + i); // create new text node
+          node.appendChild(text); // appends text node to h1 node.  NOTE: To create a header (e.g. <h1>), you must create both an <h1> element and a text node
+          paragraph.parentNode.replaceChild(node, paragraph); // replaces old paragraph node with a new h1 node
+        }
+      }
+
+    </script>
+  </body>
+</html>
