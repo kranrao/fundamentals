@@ -7,6 +7,7 @@
     <p> The <img src="img/cat.png" alt="Cat"> in the <img src="img/hat.png" alt="Hat">. </p>
     <p><button onclick="replaceImages()"> Replace Images </button></p>
     <p><button onclick="replaceParagraphs()"> Replace Paragraphs </button></p>
+    <p><button onclick="colorParagraphs()"> Color Paragraphs </button></p>
 
     <script>
     /*
@@ -35,6 +36,14 @@
           var text = document.createTextNode("Replaced with " + i); // create new text node
           node.appendChild(text); // appends text node to h1 node.  NOTE: To create a header (e.g. <h1>), you must create both an <h1> element and a text node
           paragraph.parentNode.replaceChild(node, paragraph); // replaces old paragraph node with a new h1 node
+        }
+      }
+
+      var colorParagraphs = function() {
+        var paragraphs = document.body.getElementsByTagName("p");
+        for (var i = paragraphs.length - 1; i >= 0; i--) {
+          var paragraph = paragraphs[i];
+          paragraph.style.color = "blue"; // adds style color of "blue";
         }
       }
 
