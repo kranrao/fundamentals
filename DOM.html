@@ -8,6 +8,7 @@
     <p><button onclick="replaceImages()"> Replace Images </button></p>
     <p><button onclick="replaceParagraphs()"> Replace Paragraphs </button></p>
     <p><button onclick="colorParagraphs()"> Color Paragraphs </button></p>
+    <input type="text">
 
     <script>
     /*
@@ -46,6 +47,18 @@
           paragraph.style.color = "blue"; // adds style color of "blue";
         }
       }
+
+      var eventHandlers = function() {
+        var field = document.querySelector("input"); // selects specific node
+        field.addEventListener("keydown", function(event) {
+          if (event.keyCode === "Q".charCodeAt(0)) { // checks if key is Q
+            event.preventDefault(); // prevents the default of Q being added to the input
+          }
+        });
+      };
+      
+      // invokes event handlers
+      eventHandlers();
 
     </script>
   </body>
